@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style type="text/css">
+        .chart div {
+            font: 16px sans-serif;
+            background-color: blue;
+            text-align: right;
+            padding: 3px;
+            margin: 1px;
+            color: white;
+        }
+    </style>
+    <title>simple bar</title>
+</head>
+
+<body>
+    <!--https://scrimba.com/p/pEKMsN/cast-1953-->
+    <div class="chart "></div>
+</body>
+
+<script>
+    var data = [];
+    
+    for(let i = 0; i<10 ; i++){
+        data.push(Math.floor(Math.random()*500 + 10));
+    }
+    
+    let svg = d3.select(".chart");
+    
+    svg.selectAll("div")
+        .data(data)
+        .enter()
+        .append("div")
+        .style("width", function(d) { return d + "px"; })
+        .style("height", "20px")
+        .text(function(dt) { return "$" + dt; });
+</script>
+
+
+
+</html>
